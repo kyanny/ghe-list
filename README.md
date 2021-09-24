@@ -28,7 +28,11 @@ Works with `fzf`.
 <video src="https://user-images.githubusercontent.com/10515/134658051-a801bf1f-d368-48c1-8ba7-cb82d671fe4e.mov
 "/>
 
-Works with Alfred. It requires [Alfred Powerpack](https://www.alfredapp.com/powerpack/) because it runs with the Alfred Workflow. Alfred Workflow file is available at https://github.com/kyanny/ghe-list/blob/main/ghe-list.alfredworkflow. If you want to copy only version number, press Cmd and hit Enter (Return).
+Works with Alfred. It requires [Alfred Powerpack](https://www.alfredapp.com/powerpack/) because it runs with the Alfred Workflow.
+
+Alfred Workflow file is available at https://github.com/kyanny/ghe-list/blob/main/ghe-list.alfredworkflow.
+
+If you want to copy only version number, press Cmd and hit Enter (Return).
 
 <video src="https://user-images.githubusercontent.com/10515/134658028-2ec266ce-58f2-4a58-9420-e6a00003fb97.mov
 "/>
