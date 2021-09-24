@@ -28,6 +28,11 @@ Works with `fzf`.
 <video src="https://user-images.githubusercontent.com/10515/134658051-a801bf1f-d368-48c1-8ba7-cb82d671fe4e.mov
 "/>
 
+Works with `grep` and `sort`.
+
+<video src="https://user-images.githubusercontent.com/10515/134663726-c784f4f4-aca9-4bf0-8c85-35517a403422.mov
+"/>
+
 Works with Alfred. It requires [Alfred Powerpack](https://www.alfredapp.com/powerpack/) because it runs with the Alfred Workflow.
 
 Alfred Workflow file is available at https://github.com/kyanny/ghe-list/blob/main/ghe-list.alfredworkflow.
