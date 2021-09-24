@@ -1,8 +1,10 @@
 import { Command, EnumType } from "https://deno.land/x/cliffy/command/mod.ts";
-import { cache } from "https://deno.land/x/cache/mod.ts";
+import { cache, remove } from "https://deno.land/x/cache/mod.ts";
 import { parseFeed } from "https://deno.land/x/rss/mod.ts";
 import { urlParse } from 'https://deno.land/x/url_parse/mod.ts';
 import { parse } from "https://deno.land/std@0.108.0/path/mod.ts";
+
+const rss_url = "https://enterprise.github.com/releases.rss";
 
 const format = new EnumType(["short", "alfred-workflow-json"]);
 const { options } = await new Command()
@@ -11,9 +13,14 @@ const { options } = await new Command()
     .description("GitHub Enterprise Server Releases")
     .type("format", format)
     .option<{ format: typeof format }>("-f, --format [method:format]", "output format")
+    .option("-r, --reload", "force fetch (ignore cache)")
     .parse(Deno.args);
 
-const file = await cache("https://enterprise.github.com/releases.rss");
+if (!!options.reload) {
+    await remove(rss_url)
+}
+
+const file = await cache(rss_url);
 const xml = await Deno.readTextFile(file.path);
 const feed = await parseFeed(xml);
 const urls = feed.entries.map(entry => entry.id);
