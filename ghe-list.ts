@@ -1,4 +1,5 @@
 import { Command, EnumType } from "https://deno.land/x/cliffy/command/mod.ts";
+import { cache } from "https://deno.land/x/cache/mod.ts";
 import { parseFeed } from "https://deno.land/x/rss/mod.ts";
 import { urlParse } from 'https://deno.land/x/url_parse/mod.ts';
 import { parse } from "https://deno.land/std@0.108.0/path/mod.ts";
@@ -12,10 +13,8 @@ const { options } = await new Command()
     .option<{ format: typeof format }>("-f, --format [method:format]", "output format")
     .parse(Deno.args);
 
-const response = await fetch(
-  "https://enterprise.github.com/releases.rss",
-);
-const xml = await response.text();
+const file = await cache("https://enterprise.github.com/releases.rss");
+const xml = await Deno.readTextFile(file.path);
 const feed = await parseFeed(xml);
 const urls = feed.entries.map(entry => entry.id);
 
